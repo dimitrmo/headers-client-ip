@@ -1,6 +1,6 @@
 # headers-client-ip
 
-![Build Status](https://github.com/dimitrmo/headers-client-ip/actions/workflows/ci.yml/badge.svg)
+![Build Status](https://github.com/dimitrmo/headers-client-ip/actions/workflows/ci.yml/badge.svg) ![crates.io](https://img.shields.io/crates/v/headers-client-ip.svg)
 
 ## Use with axum
 
