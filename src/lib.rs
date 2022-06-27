@@ -66,8 +66,8 @@ impl Header for XRealIP {
                 let ip = value.to_str().ok();
 
                 if ip.is_some() {
-                    if let Ok(address) = ip.unwrap().to_string().parse::<IpAddr>() {
-                        return Some(XRealIP { 0: address });
+                    if let Ok(xrealip) = ip.unwrap().to_string().parse::<XRealIP>() {
+                        return Some(xrealip);
                     }
                 }
 
