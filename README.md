@@ -1,5 +1,7 @@
 # headers-client-ip
 
+[![Build Status](https://github.com/dimitrmo/headers-client-ip/workflows/CI/badge.svg)](https://github.com/dimitrmo/headers-client-ip/actions?query=workflow%3ACI)
+
 ## Use with axum
 
 ```rust
