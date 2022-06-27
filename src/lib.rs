@@ -1,4 +1,6 @@
-use std::net::IpAddr;
+use std::fmt;
+use std::fmt::{Display, Formatter};
+use std::net::{IpAddr};
 use headers::{Header, HeaderName, HeaderValue};
 use lazy_static::lazy_static;
 
@@ -8,6 +10,31 @@ lazy_static! {
 
 #[derive(Clone, PartialEq, Eq, Debug)]
 pub struct XRealIP(pub IpAddr);
+
+impl XRealIP {
+
+    fn new(ip: IpAddr) -> Self {
+        XRealIP{ 0: ip }
+    }
+
+}
+
+impl From<IpAddr> for XRealIP {
+
+    #[inline]
+    fn from(ip: IpAddr) -> XRealIP {
+        XRealIP::new(ip)
+    }
+
+}
+
+impl Display for XRealIP {
+
+    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
+        write!(f, "{}", self.0)
+    }
+
+}
 
 impl Header for XRealIP {
 
@@ -39,5 +66,17 @@ impl Header for XRealIP {
 
     fn encode<E: Extend<HeaderValue>>(&self, _values: &mut E) {
         // values.extend(::std::iter::once(HeaderValue::from_static("true")));
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::XRealIP;
+    use std::net::{IpAddr, Ipv4Addr};
+
+    #[test]
+    fn string_formatter_works() {
+        let ip = XRealIP::new(IpAddr::V4(Ipv4Addr::new(127, 0, 0, 4)));
+        assert_eq!(ip.to_string(), "127.0.0.4");
     }
 }
