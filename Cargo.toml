@@ -3,7 +3,7 @@ name = "headers-client-ip"
 version = "0.1.0"
 edition = "2021"
 license-file = "LICENSE"
-keywords = ["headers", "xrealip", "axum"]
+keywords = ["headers", "xrealip", "axum", "typedheader", "typed"]
 repository = "https://github.com/dimitrmo/headers-client-ip"
 description = "A header for X-Real-IP compatible with headers crate"
 
