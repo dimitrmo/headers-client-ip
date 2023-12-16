@@ -8,7 +8,7 @@ Add this to your `Cargo.toml`
 
 ```toml
 [dependencies]
-headers-client-ip = "0.1.0"
+headers-client-ip = "0.1.1"
 ```
 
 ## Use with axum
